@@ -1,0 +1,53 @@
+{
+  "employeeList": [
+    {
+      "id": 11,
+      "name": "poojaaa",
+      "gender": "female",
+      "dob": "2022-10-04",
+      "salary": "20000"
+    },
+    {
+      "id": 15,
+      "name": "charviss",
+      "gender": "female",
+      "dob": "2022-10-04",
+      "salary": "29000"
+    },
+    {
+      "id": 16,
+      "name": "bhargavss",
+      "gender": "male",
+      "dob": "2022-10-04",
+      "salary": "700000"
+    },
+    {
+      "id": 17,
+      "name": "allu",
+      "gender": "female",
+      "dob": "2022-10-04",
+      "salary": "200000"
+    },
+    {
+      "id": 18,
+      "name": "ruki",
+      "gender": "female",
+      "dob": "2022-10-05",
+      "salary": "300000"
+    },
+    {
+      "id": 19,
+      "name": "zaid",
+      "gender": "female",
+      "dob": "2022-10-05",
+      "salary": "300000"
+    },
+    {
+      "id": 20,
+      "name": "jinal",
+      "gender": "f",
+      "dob": "2022-10-13",
+      "salary": "13242"
+    }
+  ]
+}

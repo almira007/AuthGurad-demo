@@ -1,0 +1,77 @@
+<div class="d-flex flex-column justify-content-center align-items-center row pt-3 mx-auto" style="width:800px">
+    <div class="d-flex  mt-2 ms-3 text-left bg-white rounded shadow py-3">
+        <div>
+            <h3 class="d-flex justify-content-center align-items-center">Add Employee</h3>
+            <form class="row g-4 pt-2" [formGroup]="employeeForm">
+                <div class="col-md-6">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" formControlName="name"
+                        [ngClass]="{'is-invalid' : formValidation['name'].invalid && (isSubmitted || formValidation['name'].touched || formValidation['name'].dirty),
+                'is-valid' : formValidation['name'].valid && (isSubmitted || formValidation['name'].touched || formValidation['name'].dirty)}">
+                    <div class="invalid-feedback"
+                        *ngIf="formValidation['name'].invalid && (isSubmitted || formValidation['name'].touched || formValidation['name'].dirty)">
+                        <div *ngIf="formValidation['name'].errors && formValidation['name'].errors['required']"
+                            class="text-danger">Name is required.</div>
+                        <div *ngIf="formValidation['name'].errors?.['minlength']" class="text-danger">
+                            Name shold have minimun 3 Characters.
+                        </div>
+                        <div *ngIf="formValidation['name'].errors?.['pattern']" class="text-danger">
+                            Name shold have only Characters.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Gender</label>
+                    <input type="text" class="form-control" formControlName="gender"
+                        [ngClass]="{'is-invalid' : formValidation['gender'].invalid && (isSubmitted || formValidation['gender'].touched || formValidation['gender'].dirty),
+                'is-valid' : formValidation['gender'].valid && (isSubmitted || formValidation['gender'].touched || formValidation['gender'].dirty)}">
+                    <div class="invalid-feedback"
+                        *ngIf="formValidation['gender'].invalid && (isSubmitted || formValidation['gender'].touched || formValidation['gender'].dirty)">
+                        <div *ngIf="formValidation['gender'].errors && formValidation['gender'].errors['required']"
+                            class="text-danger">Gender is required.</div>
+                        <div *ngIf="formValidation['gender'].errors?.['pattern']" class="text-danger">
+                            Gender shold have only alphabets.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">DOB</label>
+                    <input type="date" class="form-control" formControlName="dob" [ngClass]="{'is-invalid' : formValidation['dob'].invalid && (isSubmitted || formValidation['dob'].touched || formValidation['dob'].dirty),
+                    'is-valid' : formValidation['dob'].valid && (isSubmitted || formValidation['dob'].touched || formValidation['dob'].dirty)}">
+                    <div class="invalid-feedback"
+                        *ngIf="formValidation['dob'].invalid && (isSubmitted || formValidation['dob'].touched || formValidation['dob'].dirty)">
+                        <div *ngIf="formValidation['dob'].errors && formValidation['dob'].errors['required']"
+                            class="text-danger">DateOfBirth is required.</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Salary</label>
+                    <input type="text" class="form-control" formControlName="salary"
+                        [ngClass]="{'is-invalid' : formValidation['salary'].invalid && (isSubmitted || formValidation['salary'].touched || formValidation['salary'].dirty),
+                'is-valid' : formValidation['salary'].valid && (isSubmitted || formValidation['salary'].touched || formValidation['salary'].dirty)}">
+                    <div class="invalid-feedback"
+                        *ngIf="formValidation['salary'].invalid && (isSubmitted || formValidation['salary'].touched || formValidation['salary'].dirty)">
+                        <div *ngIf="formValidation['salary'].errors && formValidation['salary'].errors['required']"
+                            class="text-danger">Salary is required.</div>
+                        <div *ngIf="formValidation['salary'].errors?.['pattern']" class="text-danger">
+                            Salary shold have only Number.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success me-2" (click)="saveEmployee()" >Save</button>
+                    <button type="button" class="btn btn-primary" (click)="resetForm()">Reset</button>
+                </div>
+            </form>
+            <div class="pt-2">
+                <app-employee-list
+                [addEmployee]="add"
+                [updateRecord]="update"
+                (edit)="editEmployee($event)">
+                </app-employee-list>
+                <!-- [employeeList]="employeeData", -->
+            </div>
+        </div>
+    </div>
+
+</div>

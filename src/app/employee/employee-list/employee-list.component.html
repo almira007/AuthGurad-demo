@@ -1,0 +1,24 @@
+<h3 class="d-flex justify-content-center align-items-center">Employee List</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">DateOfBirth</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="employeeList">
+        <tr *ngFor="let item of employeeList">
+            <td>{{item.name | titlecase}}</td>
+            <td>{{item.gender | uppercase}}</td>
+            <td>{{item.dob | date:'mediumDate'}}</td>
+            <td>{{item.salary | currencyPipe : 'IND'}}</td>
+            <td><button type="submit" class="btn btn-success me-2" (click)="editEmployee(item)">Edit</button></td>
+            <td><button type="submit" class="btn btn-danger me-2" (click)="deleteEmployeeData(item.id)">Delete</button></td>
+            <td><button type="submit" class="btn btn-primary me-2" (click)="detailsEmployee(item)">Details</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
