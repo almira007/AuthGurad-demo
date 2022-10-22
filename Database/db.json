@@ -41,13 +41,6 @@
       "gender": "female",
       "dob": "2022-10-05",
       "salary": "300000"
-    },
-    {
-      "id": 20,
-      "name": "jinal",
-      "gender": "f",
-      "dob": "2022-10-13",
-      "salary": "13242"
     }
   ]
 }
