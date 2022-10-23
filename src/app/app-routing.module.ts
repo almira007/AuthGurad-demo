@@ -3,28 +3,38 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './user-register/login/login.component';
+import { RegisterComponent } from './user-register/register/register.component';
 
 const routes: Routes = [
   {
-      path:'',
-      pathMatch:'full',
-      redirectTo:'home'
+    path: 'login',
+    component: LoginComponent
   },
   {
-      path:'home',
-      component:HomeComponent
+     path:'register',
+     component:RegisterComponent
   },
   {
-      path:'contact',
-      component:ContactComponent
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
   },
   {
     path: 'employee',
     loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)
   },
   {
-     path:'**',
-     component:PageNotFoundComponent
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
