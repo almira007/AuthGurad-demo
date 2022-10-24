@@ -7,7 +7,11 @@ export class CanDeactiveGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
-  }
+      return this.canDeactivate();
+    }
   
+    canDeactivate(): boolean {
+      return confirm('are you sure you want to navigate Home')
+       
+    }
 }
