@@ -33,6 +33,18 @@ export class RegisterComponent implements OnInit {
 
   public onSubmit(): void{
     this.submitted = true;
+
+    if(this.registerForm.invalid){
+      return;
+    }
+
+    this.loading = true;
+    this.userService.addRegisterData(this.registerForm.value)
+    .subscribe
+    ((data: any) => {
+      this.toast.showSuccess('Registration successful','Data Add sucessfully');
+      this.router.navigate(['/login']);
+    });
   }
 
   private buildForm(): FormGroup {
