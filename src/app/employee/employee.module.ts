@@ -30,7 +30,7 @@ import { EmployeeDetailsService } from './service/employee-details.service';
   ],
   providers:[
     EmployeeServiceService,
-    ToasterService,
+    // ToasterService,
     EmployeeDetailsService
   ]
 })

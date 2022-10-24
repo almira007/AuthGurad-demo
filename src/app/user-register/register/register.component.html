@@ -13,27 +13,51 @@
                                     <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
                                 </div>
 
-                                <form>
+                                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                                     <!-- 2 column grid layout with text inputs for the first and last names -->
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
-                                                <input type="text" id="form3Example1" class="form-control" />
+                                                <input type="text" id="form3Example1" class="form-control"
+                                                    formControlName="firstName"
+                                                    [ngClass]="{ 'is-invalid': submitted && formValidation['firstName'].errors }" />
                                                 <label class="form-label" for="form3Example1">First name</label>
+                                                <div *ngIf="submitted && formValidation['firstName'].errors"
+                                                    class="invalid-feedback">
+                                                    <div *ngIf="formValidation['firstName'].errors['required']">
+                                                        First Name is required
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <div class="form-outline">
-                                                <input type="text" id="form3Example2" class="form-control" />
+                                                <input type="text" id="form3Example2" class="form-control"
+                                                    formControlName="lastName"
+                                                    [ngClass]="{ 'is-invalid': submitted && formValidation['lastName'].errors }" />
                                                 <label class="form-label" for="form3Example2">Last name</label>
+                                                <div *ngIf="submitted && formValidation['lastName'].errors"
+                                                    class="invalid-feedback">
+                                                    <div *ngIf="formValidation['lastName'].errors['required']">
+                                                        last Name is required
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- Email input -->
                                     <div class="form-outline mb-3">
-                                        <input type="email" id="form3Example3" class="form-control" />
-                                        <label class="form-label" for="form3Example3">Email address</label>
+                                        <input type="text" id="form3Example3" class="form-control"
+                                            formControlName="username"
+                                            [ngClass]="{ 'is-invalid': submitted && formValidation['username'].errors }" />
+                                        <label class="form-label" for="form3Example3">UserName</label>
+                                        <div *ngIf="submitted && formValidation['username'].errors"
+                                            class="invalid-feedback">
+                                            <div *ngIf="formValidation['username'].errors['required']">
+                                                UserName is required
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <!--Role-->
@@ -47,20 +71,38 @@
                                             <input id="user" type="radio" value="user" name="role"
                                                 formControlName="role" class="ml-2" />
                                             <label for="user">user</label>
-
+                                            <div *ngIf="
+                                            formValidation['role'].invalid &&
+                                              (submitted || formValidation['role'].touched || formValidation['role'].dirty)
+                                            ">
+                                                <span class="text-danger"
+                                                    *ngIf="formValidation['role'].errors?.['required']">
+                                                    role is required
+                                                </span>
                                             </div>
                                         </div>
-                                    
+                                    </div>
+
                                     <!-- Password input -->
                                     <div class="form-outline mb-3">
-                                        <input type="password" id="form3Example4" class="form-control" />
+                                        <input type="password" id="form3Example4" class="form-control"
+                                            formControlName="password"
+                                            [ngClass]="{ 'is-invalid': submitted && formValidation['password'].errors }" />
                                         <label class="form-label" for="form3Example4">Password</label>
+                                        <div *ngIf="submitted && formValidation['password'].errors" class="invalid-feedback">
+                                            <div *ngIf="formValidation['password'].errors['required']">
+                                                Password is required
+                                            </div>
+                                            <div *ngIf="formValidation['password'].errors['minlength']">
+                                                Password must be at least 6 characters
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <!-- Submit button -->
                                     <div class="text-center pt-1 mb-5 pb-1">
                                         <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-                                            type="button" routerLink="/login">Register</button>
+                                            type="submit" [disabled]="loading">Register</button>
                                     </div>
                                 </form>
 
