@@ -42,5 +42,14 @@
       "dob": "2022-10-05",
       "salary": "300000"
     }
+  ],
+  "user": [
+    {
+      "firstName": "Almira",
+      "lastName": "shaikh",
+      "username": "Almira",
+      "password": "123456",
+      "id": 1
+    }
   ]
 }
