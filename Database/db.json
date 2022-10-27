@@ -66,6 +66,14 @@
       "password": "Heni@123",
       "role": "user",
       "id": 3
+    },
+    {
+      "firstName": "Amresh",
+      "lastName": "prasad",
+      "username": "amresh",
+      "password": "amresh123",
+      "role": "admin",
+      "id": 4
     }
   ]
 }

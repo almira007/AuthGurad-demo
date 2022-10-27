@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public loading = false;
   public submitted = false;
-  public returnUrl: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,7 +25,6 @@ export class LoginComponent implements OnInit {
   ) {
     this.loginForm = this.buildForm()
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   ngOnInit(): void {
@@ -62,7 +60,7 @@ export class LoginComponent implements OnInit {
       if(user){
         localStorage.setItem('isAuthenticated','true');
         localStorage.setItem('user', JSON.stringify(user));
-        this.router.navigate([this.returnUrl]);
+        this.router.navigate(['home'])
       }else{
         this.alertService.success('Invalid Credentials. Try again.');
       }

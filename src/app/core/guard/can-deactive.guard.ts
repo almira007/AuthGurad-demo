@@ -11,7 +11,7 @@ export class CanDeactiveGuard implements CanActivate {
     }
   
     canDeactivate(): boolean {
-      return confirm('are you sure you want to navigate Home')
+      return confirm('are you sure you want to navigate')
        
     }
 }

@@ -12,36 +12,32 @@ export class AuthGuardGuard implements CanActivate, CanActivateChild, CanLoad {
 
   }
 
-  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    throw new Error('Method not implemented.');
-  }
-
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.authService.userIsLogin()) {
       return true;
     } else {
-      this.route.navigate(['login'])
-      return false;
+      // alert("you have not permission to access Employee");
+      this.route.navigate(['login']);
+      return false
     }
   }
-
-  CanActivateChild(route: ActivatedRoute, state: RouterStateSnapshot): boolean {
+  
+  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let user: any = localStorage.getItem('user');
     let loggedInUser: any = JSON.parse(user);
 
     if (loggedInUser.role === 'admin') {
+
       return true;
     } else {
       console.log('Unauthorized to open link: ' + state.url);
       return false;
     }
-
-
   }
 
-  canLoad(route: Route, segments: UrlSegment[]): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+  canLoad(route: Route): boolean {
     if (this.authService.userIsLogin()) {
       return true;
     } else {
