@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 import { AuthGuardGuard } from './core/guard/auth-guard.guard';
+import { CanDeactiveGuard } from './core/guard/can-deactive.guard';
+import { LoginGuard } from './core/guard/login.guard';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './user-register/login/login.component';
@@ -10,7 +12,8 @@ import { RegisterComponent } from './user-register/register/register.component';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [LoginGuard]
   },
   {
      path:'register',
@@ -29,7 +32,7 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent,
-    canDeactivate: [AuthGuardGuard]
+    canDeactivate: [CanDeactiveGuard]
   },
   {
     path: 'employee',

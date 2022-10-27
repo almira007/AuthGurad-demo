@@ -6,6 +6,7 @@ import { AuthService } from './service/auth.service';
 import { AuthGuardGuard } from './guard/auth-guard.guard';
 import { CanDeactiveGuard } from './guard/can-deactive.guard';
 import { UserGuard } from './guard/user.guard';
+import { LoginGuard } from './guard/login.guard';
 
 
 
@@ -24,6 +25,7 @@ import { UserGuard } from './guard/user.guard';
     AuthService,
     AuthGuardGuard,
     CanDeactiveGuard,
+    LoginGuard,
     UserGuard
   ]
 })
