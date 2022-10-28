@@ -46,34 +46,11 @@
   "user": [
     {
       "firstName": "Almira",
-      "lastName": "shaikh",
-      "username": "Almira",
-      "password": "123456",
+      "lastName": "Shaikh",
+      "email": "almira@gmail.com",
+      "password": "Almira@123",
+      "role": "user",
       "id": 1
-    },
-    {
-      "firstName": "Hasan",
-      "lastName": "shaikh",
-      "username": "Hasan",
-      "password": "Hasan@123",
-      "role": "user",
-      "id": 2
-    },
-    {
-      "firstName": "Heni",
-      "lastName": "patel",
-      "username": "Heni",
-      "password": "Heni@123",
-      "role": "user",
-      "id": 3
-    },
-    {
-      "firstName": "Amresh",
-      "lastName": "prasad",
-      "username": "amresh",
-      "password": "amresh123",
-      "role": "admin",
-      "id": 4
     }
   ]
 }

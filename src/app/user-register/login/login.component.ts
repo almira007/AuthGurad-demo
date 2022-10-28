@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
   public buildForm(): FormGroup {
     return this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -51,12 +51,12 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    const username: string = this.formValidation['username'].value;
+    const email: string = this.formValidation['email'].value;
     const password: string = this.formValidation['password'].value;
 
     this.authenticationService.getLoginData()
     .subscribe((data) => {
-      let user = data.find((user: User) => (user.username === username) && (user.password === password));
+      let user = data.find((user: User) => (user.email === email) && (user.password === password));
       if(user){
         localStorage.setItem('isAuthenticated','true');
         localStorage.setItem('user', JSON.stringify(user));

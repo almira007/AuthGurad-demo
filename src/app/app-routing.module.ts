@@ -6,7 +6,9 @@ import { CanDeactiveGuard } from './core/guard/can-deactive.guard';
 import { LoginGuard } from './core/guard/login.guard';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ForgotComponent } from './user-register/forgot/forgot.component';
 import { LoginComponent } from './user-register/login/login.component';
+import { RecoverpasswordComponent } from './user-register/recoverpassword/recoverpassword.component';
 import { RegisterComponent } from './user-register/register/register.component';
 
 const routes: Routes = [
@@ -18,6 +20,14 @@ const routes: Routes = [
   {
      path:'register',
      component:RegisterComponent
+  },
+  {
+     path:'forgot',
+     component:ForgotComponent
+  },
+  {
+     path:'recover',
+     component:RecoverpasswordComponent
   },
   {
     path: '',

@@ -48,14 +48,14 @@
 
                                     <!-- Email input -->
                                     <div class="form-outline mb-3">
-                                        <input type="text" id="form3Example3" class="form-control"
-                                            formControlName="username"
-                                            [ngClass]="{ 'is-invalid': submitted && formValidation['username'].errors }" />
-                                        <label class="form-label" for="form3Example3">UserName</label>
-                                        <div *ngIf="submitted && formValidation['username'].errors"
+                                        <input type="email" id="form3Example3" class="form-control"
+                                            formControlName="email"
+                                            [ngClass]="{ 'is-invalid': submitted && formValidation['email'].errors }" />
+                                        <label class="form-label" for="form3Example3">email</label>
+                                        <div *ngIf="submitted && formValidation['email'].errors"
                                             class="invalid-feedback">
-                                            <div *ngIf="formValidation['username'].errors['required']">
-                                                UserName is required
+                                            <div *ngIf="formValidation['email'].errors['required']">
+                                                Email is required
                                             </div>
                                         </div>
                                     </div>

@@ -14,6 +14,8 @@ import { RegisterComponent } from './user-register/register/register.component';
 import { UserService } from './user-register/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ForgotComponent } from './user-register/forgot/forgot.component';
+import { RecoverpasswordComponent } from './user-register/recoverpassword/recoverpassword.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     ContactComponent,
     PageNotFoundComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForgotComponent,
+    RecoverpasswordComponent
   ],
   imports: [
     BrowserModule,
